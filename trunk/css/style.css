@@ -3,30 +3,10 @@ img { border: 0px; }
 a { color: #000000; text-decoration: none; }
 a:hover { color: #555555; text-decoration: underline; }
 
-#corp{ 
-	text-align: center;
+
+#header		{ text-align: center; }
+
+#corp{
+	text-align:center;
 }
 
-#mbed { 
-	z-index:0;
-}
-#led0 { 
-	position: absolute;
-	left:20px;
-	top:260px;
-}
-#led1 { 
-	position: absolute;
-	left:48px;
-	top:262px;
-}
-#led2 { 
-	position: absolute;
-	left:75px;
-	top:262px;
-}
-#led3 { 
-	position: absolute;
-	left:102px;
-	top:262px;
-}
