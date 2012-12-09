@@ -1,5 +1,4 @@
-:x
-:q/*
+/*
 <generator>
 	<handlers init="init" doGet="doGet"/>
 	<args>
