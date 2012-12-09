@@ -9,7 +9,7 @@
 
 #include <rflpc17xx/rflpc17xx.h>
 
-static char currentPosition = 'h';
+static char currentPosition = '';
 
 void configure_timer(void)
 {
@@ -65,6 +65,9 @@ static char doGet(struct args_t *args){
 	configure_timer();
 	
 	int dir = args->dir;
+
+	if (currentPosition == '') position_start();
+	
 
 	switch(dir)
 	{
