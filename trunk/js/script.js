@@ -44,26 +44,28 @@ function init(){
 	}
 }
 
-function ajaxGet(nled,arg) {
+function ajaxGet(url,arg) {
 	var xhr;
-	var url = (arg) ? 'led?nled='+nled+arg : 'led?nled='+nled; 
+	url = url + arg;
 	
 	try{ 		xhr = new XMLHttpRequest(); 					}	
 	catch(e){ 	xhr = new ActiveXObject('Microsoft.XMLHTTP'); 	}
 	
 	xhr.onreadystatechange = function(){
-		setImage(xhr,nled);
+		setImage(xhr,arg);
 	};
 	xhr.open("GET", url, true);
 	xhr.send(null);
 }
 
-function setImage(xhr,nled)
+function setImage(xhr,arg)
 {
 	if(xhr.readyState == 4 && xhr.status == 200)
 	{	
 		var etat = xhr.responseText;
-		document.getElementById("dled"+nled).style.display = (etat == '1') ? "block" : "none";
+		var div = (arg >= 0 && arg <= 5) ? "dled" : "flech_";
+		
+		document.getElementById("dled"+arg).style.display = (etat == '1') ? "block" : "none";
 	}
 }
 
