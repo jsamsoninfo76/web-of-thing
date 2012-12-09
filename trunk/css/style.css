@@ -1,12 +1,28 @@
-body { font-family: sans-serif; font-size: 12pt; color:#333333; }
-img { border: 0px; }
-a { color: #000000; text-decoration: none; }
-a:hover { color: #555555; text-decoration: underline; }
+body { 
+	font-family: sans-serif; 
+	font-size: 12pt;
+ 	color:#333333; 
+}
+
+img {
+	border: 0px;
+}
+
+a { 
+	color: #000000;
+	text-decoration: none;
+}
+a:hover {
+	color: #555555;
+	text-decoration: underline;
+}
 
 
-#header		{ text-align: center; }
+#header{
+	 text-align: center; 
+}
 
-#corp{
+#corp{ 	
 	text-align:center;
 }
 

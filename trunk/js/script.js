@@ -4,9 +4,10 @@ function init(){
 	//Declaration des left des différentes leds 
 	var current_coord = new Array(0,0);
 	var current_size = new Array(0,0);
-	var led_left = new Array(21,48,75,101,100,100);
-	var led_top = new Array(263,263,263,263,36,135);
+	var led_left = new Array(21,48,75,101,65,65,34,68,104);
+	var led_top = new Array(263,263,263,263,4,104,86,50,87);
 	var target;
+	var src = "img/led_on.jpg";
 	
 	for (var i=0 ; i<nb_led; i++){
 		if (i<4)
@@ -15,18 +16,24 @@ function init(){
 			current_size[1] = 10;
 			target = "mbed";
 		}
-		else
+		else if (i>=4 && i<=6)
 		{
 			current_size[0] = 24
 			current_size[1] = 19;
 			target = "ethernet";	
 		}
+		else
+		{
+			current_size[0] = 35
+			current_size[1] = 35;
+			target = "fleches";	
+			src = "img/grey.jpg";
+		}
 		
-		//alert('i:'+i+ ' left:' +(current_coord[0] +led_left[i])+  ' top'  + (current_coord[1] + led_top[i]) + '  width: ' + current_size[0] + 'height: ' + current_size[1] );
 		current_coord = getPosition(target);
 		
 		/* Parametre de l'image */
-		document.getElementById("led"+i).src = "img/led_on.jpg";
+		document.getElementById("led"+i).src = src;
 		document.getElementById("led"+i).style.position = "absolute";
 		document.getElementById("led"+i).style.left = (current_coord[0] +led_left[i]) + "px";
 		document.getElementById("led"+i).style.top = (current_coord[1] + led_top[i]) + "px";
