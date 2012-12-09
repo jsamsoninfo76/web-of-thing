@@ -40,13 +40,14 @@ function init(){
 		document.getElementById("led"+i).style.width = current_size[0]+"px";
 		document.getElementById("led"+i).style.height = current_size[1]+"px";
 		
-		ajaxGet(i,'&init=1');
+		ajaxGet('led?nled='+ i +'&init=1',i);
 	}
+	
+	ajaxGet('servo?dir=g','g');
 }
 
 function ajaxGet(url,arg) {
 	var xhr;
-	url = url + arg;
 	
 	try{ 		xhr = new XMLHttpRequest(); 					}	
 	catch(e){ 	xhr = new ActiveXObject('Microsoft.XMLHTTP'); 	}
@@ -63,9 +64,9 @@ function setImage(xhr,arg)
 	if(xhr.readyState == 4 && xhr.status == 200)
 	{	
 		var etat = xhr.responseText;
-		var div = (arg >= 0 && arg <= 5) ? "dled" : "flech_";
+		var div = (arg == 'g' || arg == 'd' || arg == 'h') ? "flech_" : "dled";
 		
-		document.getElementById("dled"+arg).style.display = (etat == '1') ? "block" : "none";
+		document.getElementById(div).style.display = (etat == '1') ? "block" : "none";
 	}
 }
 
