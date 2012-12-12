@@ -64,7 +64,7 @@ function setImage(xhr,arg)
 	if(xhr.readyState == 4 && xhr.status == 200)
 	{	
 		var etat = xhr.responseText;
-		var div = (arg == 'g' || arg == 'd' || arg == 'h') ? "flech_" : "dled";
+		var div = (arg == 'g' || arg == 'd' || arg == 'h') ? "dflech_" : "dled";
 		
 		document.getElementById(div).style.display = (etat == '1') ? "block" : "none";
 	}
