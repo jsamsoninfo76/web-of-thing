@@ -1,6 +1,6 @@
 /*
 <generator>
-	<handlers init="init" doGet="doGet"/>
+	<handlers doGet="doGet"/>
 	<args>
 		<arg name="nled" type="uint8" />
 		<arg name="init" type="uint8" />
@@ -9,16 +9,15 @@
 */
 
 #define NBLEDS 6
-#include <rflpc17xx/rflpc17xx:qh>
-
+#include <rflpc17xx/rflpc17xx.h>
 
 static int tab[NBLEDS];
 static int estInit = 0 ;
 
-static void init(){
+static void initialisation(){
     /* Initialisation */
     rflpc_led_init() ;
-    rflpc_gpio_set_pin_mode_output(2,5);
+    rflpc_gpio_set_pin_mode_output(2,2);
     rflpc_gpio_set_pin_mode_output(2,4);
     if(estInit == 0){
         int i;
@@ -30,10 +29,11 @@ static void init(){
 }
 
 static char doGet(struct args_t *args){
-    unsigned nomLed ;
+    unsigned nomLed;
     int numLed = args->nled ;
     int init = args->init ;
-    
+    if (estInit == 0) initialisation();    
+
 	switch (numLed)
 	{
 		case 0: nomLed=RFLPC_LED_1 ;
@@ -48,7 +48,7 @@ static char doGet(struct args_t *args){
 		case 3: nomLed=RFLPC_LED_4 ;
                 break;
         
- 	        case 4: nomLed = 5;
+ 	        case 4: nomLed = 2;
           	break;
             
         	case 5: nomLed = 4;

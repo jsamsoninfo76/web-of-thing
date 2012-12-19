@@ -22,14 +22,6 @@ function init(){
 			current_size[1] = 19;
 			target = "ethernet";	
 		}
-		else
-		{
-			current_size[0] = 35
-			current_size[1] = 35;
-			target = "fleches";	
-			src = "img/grey.jpg";
-		}
-		
 		current_coord = getPosition(target);
 		
 		/* Parametre de l'image */
@@ -42,8 +34,6 @@ function init(){
 		
 		ajaxGet('led?nled='+ i +'&init=1',i);
 	}
-	
-	ajaxGet('servo?dir=g','g');
 }
 
 function ajaxGet(url,arg) {
@@ -64,9 +54,7 @@ function setImage(xhr,arg)
 	if(xhr.readyState == 4 && xhr.status == 200)
 	{	
 		var etat = xhr.responseText;
-		var div = (arg == 'g' || arg == 'd' || arg == 'h') ? "dflech_" : "dled";
-		
-		document.getElementById(div).style.display = (etat == '1') ? "block" : "none";
+		document.getElementById('dled'+arg).style.display = (etat == '1') ? "block" : "none";
 	}
 }
 
