@@ -18,7 +18,6 @@
                 <!-- Images MBED & Ethernet 	-->
                 <img id=mbed src=img/mbed.jpg usemap=#mbedMap>
                 <img id=ethernet src=img/ethernet.jpg usemap=#ethernetMap>
-                <img src=img/fleches.jpg border="0" usemap="#flechesMap" id=fleches>
                 
                 <!-- LED MBED 	-->
       			<div id=dled0><a href=javascript:ajaxGet("led?nled=0",0)><img id="led0"></a></div>
@@ -30,10 +29,6 @@
                 <div id=dled4><a href=javascript:ajaxGet("led?nled=4",4)><img id="led4"></a></div>
                 <div id=dled5><a href=javascript:ajaxGet("led?nled=5",5)><img id="led5"></a></div>
                 
-                <!-- Manette	-->
-                <div id=dfleche_g><a href=javascript:ajaxGet("servo?dir=g",'g')><img id="fleche_g"></a></div>
-                <div id=dfleche_h><a href=javascript:ajaxGet("servo?dir=h",'h')><img id="fleche_h"></a></div>
-                <div id=dfleche_d><a href=javascript:ajaxGet("servo?dir=d",'d')><img id="fleche_d"></a></div>
            </div>
         
        	    <map name="mbedMap">
@@ -48,12 +43,6 @@
               <area shape="rect" coords="65,104,89,123" href="javascript:ajaxGet('led?nled=5',5)" alt="led6" />
             </map>
           
-          	<map name="flechesMap">
-                  <area shape="rect" coords="34,86,69,123" href="javascript:ajaxGet('servo?dir=g,'g')" alt="gauche" />
-                  <area shape="rect" coords="68,50,103,85" href="javascript:ajaxGet('servo?dir=h,'h')" alt="haut"/>
-              <area shape="rect" coords="104,87,138,124" href="javascript:ajaxGet('servo?dir=d,'d')" alt="droite"/>
-          </map>
-            
 		</div>
 	</body>
 </html>
